@@ -42,6 +42,8 @@ void Kwic::setOrder(int id) {
 void Kwic::setProcess(int id) {
 	if (id == 1) {
 		this->processStrategy = new Permutation();
+	} else if (id == 2) {
+		this->processStrategy = new PermutationPrintDel();
 	} else {
 		this->processStrategy = nullptr;
 	}
