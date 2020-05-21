@@ -32,7 +32,7 @@ int main () {
 	cout << "Estrategia de Preprocesamiento: (1, StopWords), (2, nada)" << endl;
 	cin >> option;
 	kwic->setPreprocess(option);
-	cout << "Estrategia de procesamiento: (1, kwic indexing, 2, Imprime lineas y Opcion de eliminar)" << endl;
+	cout << "Estrategia de procesamiento: (1, kwic indexing) (2, Imprime lineas y Opcion de eliminar)" << endl;
 	cin >> option;
 	kwic->setProcess(option);
 	cout << "Estrategia de ordenamiento: (1, alfabético ascendiente) (2, alfabético descendiente)" << endl;
