@@ -38,6 +38,7 @@ vector<string> Permutation::getWords(string sentence) {
       word = "";
     } 
   	else {
+			x = tolower(x);
     	word = word + x; 
     } 
   } 
