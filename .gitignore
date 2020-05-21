@@ -1,2 +1,5 @@
 kwic
 *.txt
+.DS_Store
+.vscode/
+a.out
