@@ -8,7 +8,7 @@ using namespace std;
 
 class Kwic {
 	public:
-		Kwic();
+		Kwic() {};
 		void execute();
 		void setOrder(int id);
 		void setProcess(int id);
@@ -24,10 +24,6 @@ class Kwic {
 		virtual void readInput() = 0;
 		void setList(const vector<string>& list) { this->list = list; }
 };
-
-Kwic::Kwic() {
-
-}
 
 void Kwic::setOrder(int id) {
 	if (id == 1) {

@@ -73,6 +73,7 @@ vector<string> StopWords::preprocess(const vector<string>& list) {
         new_sentence += word + " ";
       }
     }
+    new_sentence.pop_back();
     new_list.push_back(new_sentence);
   }
   return new_list;
