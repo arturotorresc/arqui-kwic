@@ -16,7 +16,7 @@ int main () {
 	cin >> processing;
 	cout << "Estrategia de ordenamiento: (1, alfabético ascendiente)" << endl;
 	cin >> ordering;
-	cout << "Tipo de representamiento: (1, consola)" << endl;
+	cout << "Tipo de representamiento: (1, consola, 2, consola imprime lineas y Opcion de eliminar)" << endl;
 	cin >> representing;
 
 	kwic->setProcess(processing);
