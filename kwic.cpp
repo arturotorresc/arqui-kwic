@@ -2,6 +2,7 @@
 #include "ordering.cpp"
 #include "processing.cpp"
 #include "dataRepresentation.cpp"
+#include "preprocessing.cpp"
 
 using namespace std;
 
@@ -12,8 +13,10 @@ class Kwic {
 		void setOrder(int id);
 		void setProcess(int id);
 		void setRepresent(int id);
+		void setPreprocess(int id);
 	private:
 		Ordering *orderStrategy;
+		Preprocessing *preprocessStrategy;
 		Processing *processStrategy;
 		DataRepresentation *representStrategy;
 		vector<string> list;
@@ -56,8 +59,17 @@ void Kwic::setRepresent(int id){
 	}
 }
 
+void Kwic::setPreprocess(int id){
+	if (id == 1) {
+		this->preprocessStrategy = new StopWords();
+	} else {
+		this->preprocessStrategy = new NullPreprocess();
+	}
+}
+
 void Kwic::execute () {
 	this->readInput();
+	this->list = this->preprocessStrategy->preprocess(this->list);
 	this->list = this->processStrategy->process(this->list);
 	this->list = this->orderStrategy->order(this->list);
 	this->representStrategy->represent(this->list);
