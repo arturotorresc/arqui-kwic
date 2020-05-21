@@ -71,23 +71,25 @@ class PermutationPrintDel : public Processing {
 vector<string> PermutationPrintDel::process(vector<string> list) {
 	cout << "Las lineas a ingresar" << endl;
 	for (int i = 0; i < list.size(); i++) {
-		cout << list[i] << endl;
-	}
-	
-	string word = "";
-	cout << "Escriba las lineas a eliminar (-1 para parar)" << endl;
-	while (word != "-1") {
-		cin >> ws;
-		getline(cin, word);
-		for (int i = 0; i < list.size(); i++) {
-			if (list[i] == word)
-				list.erase(list.begin() + i);
-		}
+		cout << i << ": " << list[i] << endl;
 	}
 
-	vector<string> setOfWords;
+	int index = 0;
+	cout << "Escriba index de las lineas a eliminar (-1 para acabar)" << endl;
+	while (index != -1) {
+		cin >> index;
+		list[index] = "";
+	}
+
+	vector<string> newList;
 	for (int i = 0; i < list.size(); i++) {
-		vector<string> listTemp = this->getWords(list[i]);
+		if (list[i] != "")
+			newList.push_back(list[i]);
+	}
+	
+	vector<string> setOfWords;
+	for (int i = 0; i < newList.size(); i++) {
+		vector<string> listTemp = this->getWords(newList[i]);
 		this->shiftWords(listTemp, setOfWords);
 	}
 	return setOfWords;
