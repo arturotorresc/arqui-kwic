@@ -64,11 +64,8 @@ vector<string> StopWords::preprocess(const vector<string>& list) {
     vector<string> item = this->getWords(list[i]);
     string new_sentence = "";
     for (const string& word : item) {
-      bool insert = true;
-      if (stop_words.count(word)) insert = false;
-      if (insert) {
-        new_sentence += word + " ";
-      }
+      bool insert = !stop_words.count(word);
+      if (insert) new_sentence += word + " ";
     }
     new_sentence.pop_back();
     new_list.push_back(new_sentence);
