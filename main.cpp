@@ -7,21 +7,37 @@
 using namespace std;
 
 int main () {
-	int ordering = 0;
-	int processing = 0;
-	int representing = 0;
-	Kwic *kwic = new Kwic();
+	int option = 0;
+	Kwic *kwic = nullptr;
+	cout << "Quieres leer desde la consola o desde un archivo ?" << endl;
+	cout << "(1, consola), (2, archivo)";
+	cin >> option;
+
+	switch (option) {
+		case 1: {
+			kwic = new KwicConsole();
+			break;
+		}
+		case 2: {
+			string file_name;
+			cout << "Cómo se llama el archivo?" << endl;
+			cin >> file_name;
+			kwic = new KwicReadFile(file_name);
+			break;
+		}
+		default:
+			cout << "Opción no valida" << endl;
+	}
 
 	cout << "Estrategia de procesamiento: (1, kwic indexing, 2, Imprime lineas y Opcion de eliminar)" << endl;
-	cin >> processing;
+	cin >> option;
+	kwic->setProcess(option);
 	cout << "Estrategia de ordenamiento: (1, alfabético ascendiente)" << endl;
-	cin >> ordering;
+	cin >> option;
+	kwic->setOrder(option);
 	cout << "Tipo de representamiento: (1, consola)" << endl;
-	cin >> representing;
-
-	kwic->setProcess(processing);
-	kwic->setOrder(ordering);
-	kwic->setRepresent(representing);
+	cin >> option;
+	kwic->setRepresent(option);
 
 	kwic->execute();
 
