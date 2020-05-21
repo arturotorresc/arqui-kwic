@@ -68,6 +68,11 @@ class PermutationPrintDel : public Processing {
 };
 
 vector<string> PermutationPrintDel::process(vector<string> list) {
+	cout << "Las lineas a ingresar" << endl;
+	for (int i = 0; i < list.size(); i++) {
+		cout << list[i] << endl;
+	}
+	
 	string word = "";
 	cout << "Escriba las lineas a eliminar (-1 para parar)" << endl;
 	while (word != "-1") {
@@ -77,11 +82,6 @@ vector<string> PermutationPrintDel::process(vector<string> list) {
 			if (list[i] == word)
 				list.erase(list.begin() + i);
 		}
-	}
-
-	cout << "Las lineas a ingresar" << endl;
-	for (int i = 0; i < list.size(); i++) {
-		cout << list[i] << endl;
 	}
 
 	vector<string> setOfWords;
