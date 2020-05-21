@@ -29,6 +29,8 @@ Kwic::Kwic() {
 void Kwic::setOrder(int id) {
 	if (id == 1) {
 		this->orderStrategy = new Alphabetic();
+	} else if (id == 2) {
+		this->orderStrategy = new Descending();
 	} else {
 		this->orderStrategy = nullptr;
 	}
