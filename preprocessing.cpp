@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <unordered_set>
 
 using namespace std;
 
@@ -21,20 +22,20 @@ class StopWords : public Preprocessing {
     StopWords() {}
     vector<string> preprocess(const vector<string>& list);
   private:
-    vector<string> readStopWords();
+    unordered_set<string> readStopWords();
     vector<string> getWords(const string& sentence);
 };
 
-vector<string> StopWords::readStopWords() {
+unordered_set<string> StopWords::readStopWords() {
   cout << "Como se llama tu archivo de stop words?" << endl;
   string file_name;
   cin >> file_name;
   ifstream file(file_name);
-  vector<string> lines;
+  unordered_set<string> lines;
 	if (file.is_open()) {
 		string line;
 		while (getline(file, line)) {
-			lines.push_back(line);
+			lines.insert(line);
 		}
 		file.close();
 	}
@@ -57,18 +58,14 @@ vector<string> StopWords::getWords(const string& sentence) {
 }
 
 vector<string> StopWords::preprocess(const vector<string>& list) {
-  vector<string> stop_words = this->readStopWords();
+  unordered_set<string> stop_words = this->readStopWords();
   vector<string> new_list;
   for (int i = 0; i < list.size(); ++i) {
     vector<string> item = this->getWords(list[i]);
     string new_sentence = "";
     for (const string& word : item) {
       bool insert = true;
-      for (const string& stop_word : stop_words) {
-        if (word == stop_word) {
-          insert = false;
-        }
-      }
+      if (stop_words.count(word)) insert = false;
       if (insert) {
         new_sentence += word + " ";
       }
