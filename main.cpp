@@ -12,7 +12,7 @@ int main () {
 	int representing = 0;
 	Kwic *kwic = new Kwic();
 
-	cout << "Estrategia de procesamiento: (1, kwic indexing)" << endl;
+	cout << "Estrategia de procesamiento: (1, kwic indexing, 2, Imprime lineas y Opcion de eliminar)" << endl;
 	cin >> processing;
 	cout << "Estrategia de ordenamiento: (1, alfabético ascendiente)" << endl;
 	cin >> ordering;
