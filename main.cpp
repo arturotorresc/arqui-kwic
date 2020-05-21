@@ -14,7 +14,7 @@ int main () {
 
 	cout << "Estrategia de procesamiento: (1, kwic indexing)" << endl;
 	cin >> processing;
-	cout << "Estrategia de ordenamiento: (1, alfabético ascendiente)" << endl;
+	cout << "Estrategia de ordenamiento: (1, alfabético ascendiente) (2, alfabético descendiente)" << endl;
 	cin >> ordering;
 	cout << "Tipo de representamiento: (1, consola)" << endl;
 	cin >> representing;
