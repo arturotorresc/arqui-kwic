@@ -29,6 +29,9 @@ int main () {
 			cout << "Opción no valida" << endl;
 	}
 
+	cout << "Estrategia de Preprocesamiento: (1, StopWords), (2, nada)" << endl;
+	cin >> option;
+	kwic->setPreprocess(option);
 	cout << "Estrategia de procesamiento: (1, kwic indexing)" << endl;
 	cin >> option;
 	kwic->setProcess(option);
