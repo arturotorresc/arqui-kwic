@@ -48,6 +48,8 @@ void Kwic::setProcess(int id) {
 void Kwic::setRepresent(int id){
 	if (id == 1) {
 		this->representStrategy = new ShowData();
+	} else if (id == 2) {
+		this->representStrategy = new ShowDataDel();
 	} else {
 		this->representStrategy = nullptr;
 	}
