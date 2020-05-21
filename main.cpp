@@ -38,7 +38,7 @@ int main () {
 	cout << "Estrategia de ordenamiento: (1, alfabético ascendiente) (2, alfabético descendiente)" << endl;
 	cin >> option;
 	kwic->setOrder(option);
-	cout << "Tipo de representamiento: (1, consola, 2, consola imprime lineas y Opcion de eliminar)" << endl;
+	cout << "Tipo de representamiento: (1, consola) (2, consola imprime lineas y Opcion de eliminar)" << endl;
 	cin >> option;
 	kwic->setRepresent(option);
 
